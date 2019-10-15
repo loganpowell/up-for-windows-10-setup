@@ -44,11 +44,11 @@ After your computer restarts, you will notice that Bash will not appear in the `
 ### Install `pip3` and `python3`: 
 1. Install Python 3: `sudo apt-get install python3`
 2. Verify install: `python3 --version`
-3. Install Pip3: `sudo apt install python3-pip`
-4. Verify install: `pip3 --version`
-5. Add PATH variables: `export PATH=~/.local/bin:~
-/Library/Python/3.6/bin:$PATH`
-
+3. Update apt-get: `sudo apt-get update`
+4. Install Pip3: `sudo apt-get install python3-pip`
+5. Verify install: `pip3 --version`
+6. Add PATH variables: `export PATH=~/.local/bin:~/Library/Python/3.6/bin:$PATH`
+7. Restart bash terminal (close and open again)
 
 ### Install AWS CLI [via `pip3` and `python3`](https://github.com/rajivkanaujia/alphaworks/wiki/Installing-AWS-CLI-via-pip3-and-python3):
 1. `pip3 install --user --upgrade awscli` ([more from AWS docs here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html))
