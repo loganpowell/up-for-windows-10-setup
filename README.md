@@ -195,3 +195,6 @@ or
 #### [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
 This does some cool stuff for windows 10/vs code users with the WSL
 
+## Further Reading:
+- [How to use GIT and other Linux tools in WSL on Windows](https://medium.com/faun/how-to-use-git-and-other-linux-tools-in-wsl-on-windows-4c0bffb68b35)
+- [ConEmu Bash on Windows](https://conemu.github.io/en/BashOnWindows.html)
