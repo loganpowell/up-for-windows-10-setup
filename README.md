@@ -173,8 +173,8 @@ or
 2. Create a hello world project
   a. Create a new empty directory, change into it
   b. `git init`
-  c. if you haven't yet, you'll need to set your global git environment (`git config --global user.email "you@example.com"` && `git config --global user.name "your name"`) 
-  d. `git add .` && `git commit ...`
+  c. If you want to use the WSL bash as your GIT terminal, see "Further Reading"
+  d. Else, in your regular windows terminal (e.g., cmder) `git add .` && `git commit ...`
 3. `up`
 4. You'll be prompted: `No up.json found, create a new project?`
 5. Type "y" and enter
