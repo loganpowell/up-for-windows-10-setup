@@ -175,7 +175,7 @@ or
   b. `git init`
   c. If you want to use the WSL bash as your GIT terminal, see "Further Reading"
   d. Else, in your regular windows terminal (e.g., cmder) `git add .` && `git commit ...`
-3. `up`
+3. back in the WSL bash, execute: `up`
 4. You'll be prompted: `No up.json found, create a new project?`
 5. Type "y" and enter
 6. For the project name, just name it whatever you want e.g., `helloworld`
