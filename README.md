@@ -201,7 +201,13 @@ or
 #### [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
 This does some cool stuff for windows 10/vs code users with the WSL
 
+
+## GIT
+
+1. 
+
 ## Further Reading:
+- [Setup GIT via SSH](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 - [WSLGit](https://github.com/andy-5/wslgit)
 - [Use Git installed in WSL from Windows and VSCode](https://github.com/hangxingliu/wslgit)
 - [How to use GIT and other Linux tools in WSL on Windows](https://medium.com/faun/how-to-use-git-and-other-linux-tools-in-wsl-on-windows-4c0bffb68b35)
