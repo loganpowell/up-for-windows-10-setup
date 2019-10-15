@@ -56,22 +56,8 @@ After your computer restarts, you will notice that Bash will not appear in the `
 3. Verify install: `aws --version`
 4. List all packages in pip3: `pip3 list`
 
-### Configuring AWS [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html):
 
-1. To give a profile a name (recommended for use in a mult-project environment), just add the `--profile <name>` to the `aws configure` option. Example:
-
-```
-aws configure --profile yourProfileName
-AWS Access Key ID [None]: 12334567890
-AWS Secret Access Key [None]: ABCDEFGHIJKLMNOPQRSTUVWXYZ
-Default region name [None]: eu-west-1
-Default output format [None]: json
-```
-
-2. Listing all profiles on machine: `cat ~/.aws/credentials`
-
-
-### Setup AWS IAM policy with `Up`s required permissions:
+### Setup AWS IAM policy for a Group with `Up`'s required permissions:
 
 1. Go to the AWS console and select [`IAM`](https://console.aws.amazon.com/iam/home)
 2. Select `Groups` from the left menu
@@ -80,12 +66,100 @@ Default output format [None]: json
 5. Select your new Group from the list of Groups
 6. Go to the `Permissions` Tab and click the `Inline Policies` dropdown
 7. Go to the `Up` [docs IAM policy](https://apex.sh/docs/up/credentials/#iam_policy_for_up_cli)
-8. Copy the JSON config
+8. Copy the JSON config. At the time of writing, it looks like this:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "acm:*",
+                "cloudformation:Create*",
+                "cloudformation:Delete*",
+                "cloudformation:Describe*",
+                "cloudformation:ExecuteChangeSet",
+                "cloudformation:Update*",
+                "cloudfront:*",
+                "cloudwatch:*",
+                "ec2:*",
+                "ecs:*",
+                "events:*",
+                "iam:AttachRolePolicy",
+                "iam:CreatePolicy",
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:DeleteRolePolicy",
+                "iam:GetRole",
+                "iam:PassRole",
+                "iam:PutRolePolicy",
+                "lambda:AddPermission",
+                "lambda:Create*",
+                "lambda:Delete*",
+                "lambda:Get*",
+                "lambda:InvokeFunction",
+                "lambda:List*",
+                "lambda:RemovePermission",
+                "lambda:Update*",
+                "logs:Create*",
+                "logs:Describe*",
+                "logs:FilterLogEvents",
+                "logs:Put*",
+                "logs:Test*",
+                "route53:*",
+                "route53domains:*",
+                "s3:*",
+                "ssm:*",
+                "sns:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "apigateway:*",
+            "Resource": "arn:aws:apigateway:*::/*"
+        }
+    ]
+}
+```
+
 9. Go back to the `Inline Policies` of your AWS IAM Group and click the `click here` button
 10. Choose the `Custom Polity` radio button and click the `select` button
 11. You'll see "Review Policy", wherein you'll name the policy (e.g., `up-policy`) and paste your Up config JSON into the `Policy Document`
 12. Click `Apply Policy`
 13. You can optionally choose to `Simulate Policy` from the proceeding menu to test one or more of the permissions you've given Up (no pun intended).
+
+### Setup an IAM User under Your New Group
+
+1. Go to the AWS IAM Console
+2. Select `Users` from the left menu
+3. Choose `Add user` from the dashboard
+4. In the Add user wizard (step 1), Set user details -> User name (e.g., `yourProfileName`) -> select the "Programmatic access" checkbox under `Access type`
+5. Click `Next: Permissions`
+6. Add the user to your Group by selecting it from the `Add user to group` table
+7. Click `Next: Tags` and skip adding tags (unless you know what those do and want to do that) > `Next: Review`
+8. Click `Create User`
+9. **NOW DON'T LEAVE THIS PAGE** -> you'll need these credentials to setup the AWS CLI and you'll only get to see your secret once!
+
+
+### Configuring AWS [Named Profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html):
+1. Open your bash
+2. To give a profile a name (recommended for use in a mult-project environment), just add the `--profile <name>` to the `aws configure` option. Example:
+
+```
+aws configure --profile yourProfileName
+AWS Access Key ID [None]: 12334567890 <- copy/paste (be sure not to include any leading/trailing whitespaces) your Key ID
+AWS Secret Access Key [None]: ABCDEFGHIJKLMNOPQRSTUVWXYZ <- copy/paste your Secret
+Default region name [None]: eu-west-1
+Default output format [None]: json
+```
+
+To see/list all profiles on machine use: 
+`cat ~/.aws/credentials`
+or
+`cat  ~/.aws/credentials | grep "\["`
+
 
 ## Setting up `Up`
 
@@ -96,7 +170,11 @@ Default output format [None]: json
 ### Hello world on AWS via Up
 
 1. First, verify the name of the target AWS profile `cat ~/.aws/credentials`
-2. Create a new empty directory, change into it and `git init` 
+2. Create a hello world project
+  a. Create a new empty directory, change into it
+  b. `git init`
+  c. if you haven't yet, you'll need to set your global git environment (`git config --global user.email "you@example.com"` && `git config --global user.name "your name"`) 
+  d. `git add .` && `git commit ...`
 3. `up`
 4. You'll be prompted: `No up.json found, create a new project?`
 5. Type "y" and enter
