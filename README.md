@@ -174,6 +174,7 @@ or
   a. Create a new empty directory, change into it
   b. If you want to use the WSL bash as your GIT terminal, see "Further Reading"
   c. Else, in your regular windows terminal (e.g., cmder) `git init` > `git add .` && `git commit ...`
+  d. If you're using [`cmder`](https://cmder.net/) you can actually open `wsl` bash from your working directory within it by typing `wsl` and hitting enter. To exit - within `wsl` - just type `exit` (`exit` caveat: this will clear your terminal)
 3. back in the WSL bash, execute: `up`
 4. You'll be prompted: `No up.json found, create a new project?`
 5. Type "y" and enter
@@ -186,7 +187,7 @@ or
 ### Additional Notes
 
 - the main file (executed in your lambda, eg., must be named `app.js`)
-- Get started with some Linux Shell tutorials [on YouTube](https://www.youtube.com/watch?v=NQ9txYZpYKo)
+- If you'd like to edify yourself on the available commands within `wsl`: Get started with some Linux Shell tutorials [on YouTube](https://www.youtube.com/watch?v=NQ9txYZpYKo)
 - getting GIT to work across environments is a topic of it's own. See "Further Reading" below for some starting points
 
 
