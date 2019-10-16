@@ -172,9 +172,8 @@ or
 1. First, verify the name of the target AWS profile `cat ~/.aws/credentials`
 2. Create a hello world project
   a. Create a new empty directory, change into it
-  b. `git init`
-  c. If you want to use the WSL bash as your GIT terminal, see "Further Reading"
-  d. Else, in your regular windows terminal (e.g., cmder) `git add .` && `git commit ...`
+  b. If you want to use the WSL bash as your GIT terminal, see "Further Reading"
+  c. Else, in your regular windows terminal (e.g., cmder) `git init` > `git add .` && `git commit ...`
 3. back in the WSL bash, execute: `up`
 4. You'll be prompted: `No up.json found, create a new project?`
 5. Type "y" and enter
@@ -187,6 +186,7 @@ or
 ### Additional Notes
 
 - the main file (executed in your lambda, eg., must be named `app.js`)
+- Get started with some Linux Shell tutorials [on YouTube](https://www.youtube.com/watch?v=NQ9txYZpYKo)
 - getting GIT to work across environments is a topic of it's own. See "Further Reading" below for some starting points
 
 
