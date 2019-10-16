@@ -174,20 +174,21 @@ or
   a. Create a new empty directory, change into it
   b. If you want to use the WSL bash as your GIT terminal, see "Further Reading"
   c. Else, in your regular windows terminal (e.g., cmder) `git init` > `git add .` && `git commit ...`
-  d. If you're using [`cmder`](https://cmder.net/) (my preferred windows terminal) you can actually open `wsl` bash from your working directory within it by typing `wsl` and hitting enter. To exit - within `wsl` - just type `exit` (`exit` caveat: this will clear your terminal)
+  d. If you're using [`cmder`](https://cmder.net/) (my preferred windows terminal) you can actually open `wsl` bash from your working directory within it by typing `wsl` and hitting enter. To exit - within `wsl` - just type `exit` (`exit` caveat: this will clear your terminal and, if you change directories while within `wsl`, it will not be reflected by `cmder`, i.e., you will return to the same directory you left in `cmder`)
 3. back in the WSL bash, execute: `up`
 4. You'll be prompted: `No up.json found, create a new project?`
 5. Type "y" and enter
 6. For the project name, just name it whatever you want e.g., `helloworld`
 7. You'll be prompted by up to choose the target profile (e.g., `yourProfileName` from above)
 
-... continue the steps on the [Up docs](https://apex.sh/docs/up/guides/)
+... continue the steps on the [Up docs](https://apex.sh/docs/up/getting-started/)
 
 
 ### Additional Notes
 
 - the main file (executed in your lambda, eg., must be named `app.js`)
 - If you'd like to edify yourself on the available commands within `wsl`: Get started with some Linux Shell tutorials [on YouTube](https://www.youtube.com/watch?v=NQ9txYZpYKo)
+- For automated environment variables management in `wsl`, check out [`direnv`](https://direnv.net/). It augments your shell with a feature that can load and unload environment variables depending on the current directory, which is really handy when working with Up and AWS CLI `configure`!
 - getting GIT to work across environments is a topic of it's own. See "Further Reading" below for some starting points
 
 
@@ -206,3 +207,6 @@ This does some cool stuff for windows 10/vs code users with the WSL
 ## Further Reading:
 - [How to use GIT and other Linux tools in WSL on Windows](https://medium.com/faun/how-to-use-git-and-other-linux-tools-in-wsl-on-windows-4c0bffb68b35)
 - [ConEmu Bash on Windows](https://conemu.github.io/en/BashOnWindows.html)
+- Get to know [Up](http://apex.sh/up/)
+- Get to know [Apex](http://apex.run/)
+- Find a [database that works with Up](https://github.com/apex/up/wiki#databases)
