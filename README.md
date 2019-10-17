@@ -5,7 +5,7 @@
 1. You need to be running the Windows 10 Anniversary Update on your machine. 
 2. You need to be running the 64-bit version of Windows 10. 
 
-### Install Bash Shell
+### Enable Windows Subsystem for Linux (WSL)
 
 1. Open Settings.
 2. Click on `Update & security`.
@@ -20,17 +20,19 @@
 11. Click `OK`
 12. Once the components installed on your computer, click the `Restart now` button to complete the task.
 
-#### Enable the Windows Subsystem for Linux (WSL):
-
+Alternatively:
 1. Open PowerShell as an administrator and run: 
 > `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
 2. It will prompt you to reboot your computer. Type "Y" and proceed with that to complete the operation.
-3. [Install your Linux distribution package](https://4sysops.com/archives/running-the-aws-cli-in-python-on-windows-10-in-a-linux-bash-shell/)
-4. Only for the Windows 10 Fall Creators Update (Windows build 16215) and later, you can install it from the Microsoft Store
-5. Open the Microsoft Store from the Start menu and then search for "Linux" in the Search bar at the top-right corner. You'll get a list of Linux packages.
-6. Now choose any Linux distribution. I'll choose Ubuntu in this case.
 
-#### Initializing the Bash Shell
+#### Install a Linux Distribution:
+
+1. [Install your Linux distribution package](https://4sysops.com/archives/running-the-aws-cli-in-python-on-windows-10-in-a-linux-bash-shell/)
+2. Only for the Windows 10 Fall Creators Update (Windows build 16215) and later, you can install it from the Microsoft Store
+3. Open the Microsoft Store from the Start menu and then search for "Linux" in the Search bar at the top-right corner. You'll get a list of Linux packages.
+4. Now choose any Linux distribution. I'll choose Ubuntu in this case.
+
+#### Install/Initialize Bash Shell
 
 After your computer restarts, you will notice that Bash will not appear in the `Recently added` list of apps, this is because Bash isn't actually installed yet. Now that you have setup the necessary components, use the following steps to complete the installation of Bash:
 
