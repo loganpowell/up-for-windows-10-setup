@@ -38,17 +38,19 @@ After your computer restarts, you will notice that Bash will not appear in the `
 2. On the command prompt, type "y" and press Enter to download and install Bash from the Windows Store.
 3. Then you'll need to create a default UNIX user account. This account doesn't have to be the same as your Windows account. Enter the username in the required field and press Enter (you can't use the username "admin").
 4. Close the "bash.exe" command prompt.
+5. If you're using [`cmder`](https://cmder.net/) (my preferred windows terminal) you can actually open `wsl` bash from your working directory within it by typing `wsl` and hitting enter. To exit - within `wsl` - just type `exit` (`exit` caveat: this will clear your terminal and, if you change directories while within `wsl`, it will not be reflected by `cmder`, i.e., you will return to the same directory you left in `cmder`)
 
 ## AWS CLI Setup
 
 ### Install `pip3` and `python3`: 
-1. Install Python 3: `sudo apt-get install python3`
-2. Verify install: `python3 --version`
-3. Update apt-get: `sudo apt-get update`
-4. Install Pip3: `sudo apt-get install python3-pip`
-5. Verify install: `pip3 --version`
-6. Add PATH variables: `export PATH=~/.local/bin:~/Library/Python/3.6/bin:$PATH`
-7. Restart bash terminal (close and open again)
+1. Open your bash/terminal
+2. Install Python 3: `sudo apt-get install python3`
+3. Verify install: `python3 --version`
+4. Update apt-get: `sudo apt-get update`
+5. Install Pip3: `sudo apt-get install python3-pip`
+6. Verify install: `pip3 --version`
+7. Add PATH variables: `export PATH=~/.local/bin:~/Library/Python/3.6/bin:$PATH`
+8. Restart bash terminal (close and open again)
 
 ### Install AWS CLI [via `pip3` and `python3`](https://github.com/rajivkanaujia/alphaworks/wiki/Installing-AWS-CLI-via-pip3-and-python3):
 1. `pip3 install --user --upgrade awscli` ([more from AWS docs here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html))
@@ -174,19 +176,17 @@ or
   a. Create a new empty directory, change into it
   b. If you want to use the WSL bash as your GIT terminal, see "Further Reading"
   c. Else, in your regular windows terminal (e.g., cmder) `git init` > `git add .` && `git commit ...`
-  d. If you're using [`cmder`](https://cmder.net/) (my preferred windows terminal) you can actually open `wsl` bash from your working directory within it by typing `wsl` and hitting enter. To exit - within `wsl` - just type `exit` (`exit` caveat: this will clear your terminal and, if you change directories while within `wsl`, it will not be reflected by `cmder`, i.e., you will return to the same directory you left in `cmder`)
 3. back in the WSL bash, execute: `up`
 4. You'll be prompted: `No up.json found, create a new project?`
 5. Type "y" and enter
 6. For the project name, just name it whatever you want e.g., `helloworld`
 7. You'll be prompted by up to choose the target profile (e.g., `yourProfileName` from above)
+8. **the main file (executed in your lambda) must be named `app.js`**
 
 ... continue the steps on the [Up docs](https://apex.sh/docs/up/getting-started/)
 
-
 ### Additional Notes
 
-- the main file (executed in your lambda, eg., must be named `app.js`)
 - If you'd like to edify yourself on the available commands within `wsl`: Get started with some Linux Shell tutorials [on YouTube](https://www.youtube.com/watch?v=NQ9txYZpYKo)
 - For automated environment variables management in `wsl`, check out [`direnv`](https://direnv.net/). It augments your shell with a feature that can load and unload environment variables depending on the current directory, which is really handy when working with Up and AWS CLI `configure`!
 - getting GIT to work across environments is a topic of it's own. See "Further Reading" below for some starting points
