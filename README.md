@@ -187,7 +187,51 @@ or
 
 ... continue the steps on the [Up docs](https://apex.sh/docs/up/getting-started/)
 
-### Additional Notes
+
+## For `Up Pro`:
+
+1. `up team subscribe`
+2. ... sign on the dotted line
+3. `up upgrade`
+4. Note, you may be defaulted into your team as your user email address. If you created your pro subscription under a team name, you'll need to `up team login --team <your pro team name>` before `up upgrade`ing
+
+
+## For AWS Layers
+
+### Create layer (Windows 10):
+
+- see [docs](https://apex.sh/docs/up/configuration/#lambda_settings.layers)
+- other [docs](http://p.agnihotry.com/post/php_aws_lambda_runtime/)
+
+
+### `wsl` Prerequisites 
+- if you don't have it, get npm: `sudo apt-get install npm`
+- if you don't have it, get make: `sudo apt-get install make`
+- if you don't have it, get zip: `sudo apt-get install zip`
+- make sure you have an up to date version of [node](https://www.hostingadvice.com/how-to/update-node-js-latest-version/):
+- install the `n` package (or consider [nvs](https://github.com/jasongin/nvs))
+```
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable 
+```
+(here you can use `n stable` or `n x.x.x` for the version you want)
+
+### Example:
+```
+$ mkdir nodejs
+$ npm install chrome-aws-lambda puppeteer-core
+$ mv node_modules nodejs
+$ zip -r function.zip . <- see powershell directions
+$ aws lambda publish-layer-version \
+  --layer-name nodejs-chrome \
+  --description "Node.js Headless Chrome" \
+  --license-info MIT \
+  --zip-file fileb://function.zip \
+  --compatible-runtimes nodejs6.10 nodejs8.10
+```
+
+## Additional Notes
 
 - If you'd like to edify yourself on the available commands within `wsl`: Get started with some Linux Shell tutorials [on YouTube](https://www.youtube.com/watch?v=NQ9txYZpYKo)
 - For automated environment variables management in `wsl`, check out [`direnv`](https://direnv.net/). It augments your shell with a feature that can load and unload environment variables depending on the current directory, which is really handy when working with Up and AWS CLI `configure`!
@@ -195,18 +239,11 @@ or
 
 
 
-### For `Up Pro`:
-
-1. `up team subscribe`
-2. ... sign on the dotted line
-3. `up upgrade`
-4. Note, you may be defaulted into your team as your user email address. If you created your pro subscription under a team name, you'll need to `up team login --team <your pro team name>` before `up upgrade`ing
-
-#### [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
+### [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
 This does some cool stuff for windows 10/vs code users with the WSL
 
 
-## Further Reading:
+### Further Reading:
 - [How to use GIT and other Linux tools in WSL on Windows](https://medium.com/faun/how-to-use-git-and-other-linux-tools-in-wsl-on-windows-4c0bffb68b35)
 - [ConEmu Bash on Windows](https://conemu.github.io/en/BashOnWindows.html)
 - Get to know [Up](http://apex.sh/up/)
