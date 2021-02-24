@@ -55,11 +55,11 @@ After your computer restarts, you will notice that Bash will not appear in the `
 8. Restart bash terminal (close and open again)
 
 ### Install AWS CLI [via `pip3` and `python3`](https://github.com/rajivkanaujia/alphaworks/wiki/Installing-AWS-CLI-via-pip3-and-python3):
-1. `pip3 install --user --upgrade awscli` ([more from AWS docs here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html))
-2. Add your PATH variables: `export PATH=~/.local/bin:$PATH`
-3. Verify install: `aws --version`
-4. List all packages in pip3: `pip3 list`
-
+1. Upon opening the refreshed bash terminal, switch to WSL with `wsl`
+2. `pip3 install --user --upgrade awscli` ([more from AWS docs here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html))
+3. Add your PATH variables: `export PATH=~/.local/bin:$PATH`
+4. Verify install: `aws --version`
+5. List all packages in pip3: `pip3 list`
 
 ### Setup AWS IAM policy for a Group with `Up`'s required permissions:
 
