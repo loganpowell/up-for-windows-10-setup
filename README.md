@@ -155,7 +155,7 @@ After your computer restarts, you will notice that Bash will not appear in the `
 aws configure --profile yourProfileName
 AWS Access Key ID [None]: 12334567890 <- copy/paste (be sure not to include any leading/trailing whitespaces) your Key ID
 AWS Secret Access Key [None]: ABCDEFGHIJKLMNOPQRSTUVWXYZ <- copy/paste your Secret
-Default region name [None]: eu-west-1
+Default region name [None]: us-east-1
 Default output format [None]: json
 ```
 
